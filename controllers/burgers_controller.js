@@ -29,8 +29,18 @@ router.put("/api/burgers/:id", function(req, res) {
         } else {
             res.status(200).end();
         }
-    })
-})
+    });
+});
+
+router.put("/api/burgers", function(req, res) {
+    burger.resetAll((results) => {
+        if(results.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
 
 // Export routes for server.js to use.
 module.exports = router;

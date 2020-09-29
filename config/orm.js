@@ -29,6 +29,15 @@ var orm = {
 
             cb(data);
         });
+    },
+
+    resetAll: function(cb) {
+        let sql = 'UPDATE burgers SET devoured = false WHERE id > 0;';
+        connection.query(sql, (err, data) => {
+            if(err) console.log(err);
+
+            cb(data);
+        })
     }
 };
 

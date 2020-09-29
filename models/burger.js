@@ -19,6 +19,12 @@ var burger = {
         orm.updateOne(id, (data) => {
             cb(data);
         })
+    },
+
+    resetAll: function(cb) {
+        orm.resetAll((data) => {
+            cb(data);
+        })
     }
 }
 
