@@ -1,4 +1,4 @@
-const { insertOne } = require("../config/orm.js");
+const { insertOne, updateOne } = require("../config/orm.js");
 var orm = require("../config/orm.js");
 
 var burger = {
@@ -13,6 +13,12 @@ var burger = {
         orm.insertOne(burgerName, (data) => {
             cb(data);
         });
+    },
+
+    updateOne: function(id, cb) {
+        orm.updateOne(id, (data) => {
+            cb(data);
+        })
     }
 }
 

@@ -21,9 +21,14 @@ var orm = {
         });
     },
 
-    updateOne: async function(burgerName){
-        let sql = `UPDATE burgers SET devoured WHERE burger_name LIKE '${connection.escape(burgerName)}';`;
-        return await query(sql);
+    updateOne: function(id, cb){
+        let sql = `UPDATE burgers SET devoured = true WHERE id = ${connection.escape(id)};`;
+        console.log(sql);
+        connection.query(sql, (err, data) => {
+            if(err) console.log(err);
+
+            cb(data);
+        });
     }
 };
 

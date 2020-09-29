@@ -1,8 +1,8 @@
-<li>
-	{{burger_name}}
-
+<li class="list-group-item">
+	<h6>{{burger_name}}
     {{#if devoured}}
     {{else}}
-	<button class="delete-burger" data-id="{{this.id}}">Devour!</button>
+	<button class="btn btn-warning delete-burger" data-id="{{this.id}}">Devour!</button>
     {{/if}}
+    </h6>
 </li>
