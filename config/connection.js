@@ -3,10 +3,11 @@ var mysql = require("mysql");
 
 var connection = mysql.createConnection({
   host: "localhost",
-  port: 8080,
+  port: 3306,
   user: "root",
   password: "root",
-  database: "burgers_db"
+  database: "burgers_db",
+  multipleStatements: true
 });
 
 // Make connection.
@@ -16,6 +17,7 @@ connection.connect(function(err) {
     return;
   }
   console.log("connected as id " + connection.threadId);
+
 });
 
 // Export connection for our ORM to use.
