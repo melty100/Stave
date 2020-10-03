@@ -2,7 +2,7 @@
 ## Description
 This site allows the user to maintain a list (stored on mysql) of burgers the user can add to, delete from, and reset.
 ## Installation
-You can visit this site at , or download the repository at https://github.com/melty100/burger.
+You can visit this site at https://boiling-refuge-95160.herokuapp.com, or download the repository at https://github.com/melty100/burger.
 ## Usage
 After entering the url or setting up the repo locally, scroll down the webpage to where it says "Create your burger list". From
 there enter a burger name of your choice and press the button that says 'add burger'. To consume a burger, click on it's name below
