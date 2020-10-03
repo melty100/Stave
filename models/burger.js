@@ -6,7 +6,7 @@ var burger = {
     selectAll: function(cb) {
         orm.selectAll((data) => {
             cb(data);
-        })
+        });
     },
 
     insertOne: function(burgerName, cb) {
@@ -18,13 +18,19 @@ var burger = {
     updateOne: function(id, cb) {
         orm.updateOne(id, (data) => {
             cb(data);
-        })
+        });
     },
 
     resetAll: function(cb) {
         orm.resetAll((data) => {
             cb(data);
-        })
+        });
+    },
+
+    deleteAll: function(cb) {
+        orm.deleteAll((data) => {
+            cb(data);
+        });
     }
 }
 

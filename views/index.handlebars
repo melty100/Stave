@@ -1,48 +1,93 @@
-<div class="container-fluid">
+<div class="container">
+
+
+<nav class="navbar navbar-light bg-light">
+  <h1>STAVE</h1>
+</nav>
+
+  <div class="jumbotron">
+  </div>
 
   <div class="row">
-    <div class="col">
-      <div class="header navbar navbar-light bg-light">
-        <h1> Burgers?!</h1>
+    <div class="col-md">
+      <div class="welcome ">
+        <h3 class="text-center">ATTENTION BURGER ENTHUSIASTS!</h3>
+        <p class="p-3 mb-3 bg-light rounded"> When in-between meals do you often think of what burger to eat next?
+          Do you then find yourself overwhelmed by your own imagination and the appetite it induced?
+          Deliverance is here! STAVE off your hunger by creating a burger todo list and virtually
+          consuming burgers on that list however many times you want!</p>
       </div>
     </div>
   </div>
 
-  <div class="row content-plate">
+  <div class="row">
 
-    <div class="col-3">
+    <div class="col-md-9 text-center">
 
-      {{#each burgers}}
-      {{#unless devoured}}
-      {{> burgers/burger-block }}
-      {{/unless}}
-      {{/each}}
-
-    </div>
-
-    <div class="col-6 text-center">
-      <h2>Add a Burger</h2>
-      <form class="create-form">
-
+      <h3 class="text-center">Create your Burger List</h3>
+      <form class="create-form p-3 mb-3 bg-light rounded">
         <div class="form-group">
           <label for="ca">Burger Name:</label>
           <input type="text" id="ca" name="name">
         </div>
-        <button id="add-burger" class="btn btn-primary" type="submit">Add Burger</button>
-        <button id="reset" class="btn btn-danger" type="submit">Eat burgers again!</button>
+        <button id="add-burger" class="btn btn-primary" type="submit">Add burger</button>
+        <button id="reset" class="btn btn-warning" type="submit">Eat burgers again!</button>
+        <button id="delete-burgers" class="btn btn-danger" type="submit">Delete all burgers</button>
       </form>
+
+      <div id="burger-lists" class="row justify-content-center">
+        <div id="ready-to-eat" class="col-9 col-md-4">
+          <h5>Ready to Eat</h5>
+          <div class="p-3 mb-3">
+            {{#each burgers}}
+            {{#unless devoured}}
+            {{> burgers/burger-block }}
+            {{/unless}}
+            {{/each}}
+          </div>
+        </div>
+        <div id="consumed" class="col-9 col-md-4">
+          <h5>Consumed</h5>
+          <div class="p-3 mb-3">
+            {{#each burgers}}
+            {{#if devoured}}
+            {{> burgers/burger-block }}
+            {{/if}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="col-3">
+    <div class="col-md-3 text-center">
+      <h5>Need Ideas?</h5>
+      <div class="wiki-burger-list p-3 mb-3 bg-light rounded">
+        <div>
+          <p>Click on the button below to see a wikipedia page with a list of different burgers! Sometimes
+            you're just to hungry to think...
+          </p>
+          <a href="https://en.wikipedia.org/wiki/List_of_hamburgers" target="_blank" class="btn btn-primary">Get List</a>
+        </div>
+      </div>
 
-      {{#each burgers}}
-      {{#if devoured}}
-      {{> burgers/burger-block }}
-      {{/if}}
-      {{/each}}
-
+      <h5>Got Beef with Beef?</h5>
+      <div class="wiki-burger-list p-3 mb-3 bg-light rounded">
+        <div>
+          <p>More of a plant based diet is good for you and the environment! Check out this list of veggie burgers by clicking on the button below. 
+          </p>
+          <a href="https://tasty.co/article/deenashanker/veggies-rule-burgers-drool" target="_blank" class="btn btn-primary">Get List</a>
+        </div>
+      </div>
     </div>
 
   </div>
+
+  <footer>
+    <div class="row">
+      <div class="col-md py-2 bg-primary">
+      </div>
+    </div>
+  </footer>
 
 </div>

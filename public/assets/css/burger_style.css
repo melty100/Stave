@@ -1,3 +1,6 @@
-.content-plate {
-    margin-top:50px;
+
+.jumbotron {
+    background-image: url(../img/burgers.jpg);
+    background-size: cover;
+    height: 375px;
 }

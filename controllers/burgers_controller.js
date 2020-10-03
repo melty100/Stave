@@ -16,15 +16,13 @@ router.get("/", function (req, res) {
 
 router.post("/api/burgers", function (req, res) {
     burger.insertOne(req.body.name, (data) => {
-        //console.log(data);
         res.json({ id: data.insertId });
     });
 });
 
-router.put("/api/burgers/:id", function(req, res) {
+router.put("/api/burgers/:id", function (req, res) {
     burger.updateOne(req.params.id, (results) => {
-        console.log({results});
-        if(results.changedRows == 0){
+        if (results.changedRows == 0) {
             return res.status(404).end();
         } else {
             res.status(200).end();
@@ -32,15 +30,25 @@ router.put("/api/burgers/:id", function(req, res) {
     });
 });
 
-router.put("/api/burgers", function(req, res) {
+router.put("/api/burgers", function (req, res) {
     burger.resetAll((results) => {
-        if(results.changedRows == 0) {
+        if (results.changedRows == 0) {
             return res.status(404).end();
         } else {
             res.status(200).end();
         }
     });
 });
+
+router.delete("/api/burgers", function (req, res) {
+    burger.deleteAll((results) => {
+        if (results.changedRow == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+})
 
 // Export routes for server.js to use.
 module.exports = router;

@@ -1,6 +1,7 @@
 
 $(function () {
-    $(".eat-burger").on("click", function(event) {
+
+    $(".eat-burger").on("click", function (event) {
 
         var id = $(this).data("id");
         var isDevoured = {
@@ -11,19 +12,26 @@ $(function () {
             type: "PUT",
             data: isDevoured
         }).then(() => {
-            console.log("Burger devoured!");
             location.reload();
         });
     });
 
-    $("#reset").on("click", function(event) {
-        console.log(this);
+    $("#delete-burgers").on("click", function (event) {
+        event.preventDefault();
+
+        $.ajax("/api/burgers/", {
+            type: "DELETE"
+        }).then(() => {
+            location.reload();
+        });
+    })
+
+    $("#reset").on("click", function (event) {
 
         $.ajax("/api/burgers/", {
             type: "PUT"
         }).then(() => {
-            console.log("Reset burgers!");
-            location.reload;
+            location.reload();
         });
     });
 
@@ -32,7 +40,7 @@ $(function () {
         event.preventDefault();
 
         let burgerName = $("#ca").val().trim();
-        if(burgerName === '') burgerName = 'Plain Burger'
+        if (burgerName === '') burgerName = 'Plain Burger'
 
         var burger = {
             name: burgerName,
@@ -43,7 +51,6 @@ $(function () {
             data: burger
         }).then(
             function () {
-                console.log("created new burger");
                 location.reload();
             }
         );

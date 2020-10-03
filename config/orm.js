@@ -23,7 +23,6 @@ var orm = {
 
     updateOne: function(id, cb){
         let sql = `UPDATE burgers SET devoured = true WHERE id = ${connection.escape(id)};`;
-        console.log(sql);
         connection.query(sql, (err, data) => {
             if(err) console.log(err);
 
@@ -37,7 +36,16 @@ var orm = {
             if(err) console.log(err);
 
             cb(data);
-        })
+        });
+    },
+
+    deleteAll: function(cb) {
+        let sql = 'DELETE FROM burgers WHERE id > 0';
+        connection.query(sql, (err, data) => {
+            if(err) console.log(err);
+
+            cb(data);
+        });
     }
 };
 
